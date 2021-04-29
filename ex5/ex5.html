@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Verification adresse e-mail</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+</head>
+<body>
+    <script>
+        function verifierformulaire(f)
+        {
+            var t=verifmail(f.email);
+            if(t)
+            {return true;}
+            else
+            {
+                windowalert("l'adresse est mail ecrite")
+                return false;
+            }
+        }
+        function fond(champ,e)
+        {
+            if(e)
+            {champ.style.backgroundcolor="#fba";}
+            else
+            {champ.style.backgroundcolor="";}
+        }
+        function verifmail(champ)
+        {
+            var c=/^[a-z A-Z 0-9 ._-]+@[a-z A-Z 0-9 ._-]{2.}\.[a-z]{2,4}$/;
+            if (!x.test(champ.value))
+            {
+                fond(champ,true);
+                return false;
+            }
+            else
+            {
+                fond(champ,false);
+                return true;
+            }
+        }
+    </script>
+    <form method="POST">
+        <div class="mail">
+            <label for="prenom"> Entrez votre adresse e-mail :</label>
+            <input type="email" name="email" />
+            <input type="button" style="margin-left: 4cm ;size: 5cm;" value="verifier" onclick="verifmail()"/>
+        </div>
+    </form>
+</body>
+</html>
